@@ -4,7 +4,7 @@ import { ref } from 'vue';
 const passwordLength = ref(10);
 const generatedPassword = ref('');
 const isCopied = ref(false);
-const attemptedCopy = ref(false); // Add this variable
+const attemptedCopy = ref(false);
 
 const generatePassword = () => {
   const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
@@ -14,14 +14,14 @@ const generatePassword = () => {
     password += charset[randomIndex];
   }
   generatedPassword.value = password;
-  isCopied.value = false; // Reset the copied status
-  attemptedCopy.value = false; // Reset the attempted copy status
+  isCopied.value = false;
+  attemptedCopy.value = false;
 }
 
 const copyPassword = () => {
   if (!generatedPassword.value) {
-    attemptedCopy.value = true; // Set the attempted copy flag
-    return; // Don't copy if password is not generated
+    attemptedCopy.value = true;
+    return;
   }
   const inputField = document.getElementById('password');
   inputField.select();
